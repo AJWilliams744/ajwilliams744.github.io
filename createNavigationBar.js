@@ -1,4 +1,4 @@
-var navbarItems = `
+const navbarItems = `
     <div class="title">
         <div class="header">
             <h3>Alex Williams</h3>
@@ -33,11 +33,15 @@ var navbarItems = `
         </div>
     </div>  
     `
-document.getElementById("navbar-container").innerHTML = navbarItems;
+const navbarContainer = document.getElementById("navbar-container");
+
+if (navbarContainer) {
+    navbarContainer.innerHTML = navbarItems;
+}
 
 
-const navItems = document.querySelectorAll('.nav');
-const navItems2 = document.querySelectorAll('.drp');
+const navItems = document.querySelectorAll(".nav");
+const navItems2 = document.querySelectorAll(".drp");
 const allNavItems = [...navItems, ...navItems2];
 
 for (let i = 0; i < allNavItems.length; i++) {
@@ -48,11 +52,11 @@ for (let i = 0; i < allNavItems.length; i++) {
 
         setCurrent(allNavItems[i]);
 
-        sessionStorage.setItem('current', allNavItems[i].id);
+        sessionStorage.setItem("current", allNavItems[i].id);
     });
 }
 
-const currentItem = document.getElementById(sessionStorage.getItem('current'));
+const currentItem = document.getElementById(sessionStorage.getItem("current"));
 
 if (currentItem == null) {
     setCurrent(document.getElementById("nav1"));
@@ -61,12 +65,21 @@ if (currentItem == null) {
 }
 
 function setCurrent(currentItem) {
-    currentItem.classList.add('current');
-    currentItem.classList.add('disableClick')
+    if (!currentItem) return;
+    currentItem.classList.add("current");
+    currentItem.classList.add("disableClick");
+    const parentDropbtn = currentItem.closest(".dropdown")?.querySelector(".dropbtn");
+    if (parentDropbtn) {
+        parentDropbtn.classList.add("current");
+    }
 }
 
 function removeCurrent(currentItem) {
-    currentItem.classList.remove('current');
-    currentItem.classList.remove('disableClick')
+    if (!currentItem) return;
+    currentItem.classList.remove("current");
+    currentItem.classList.remove("disableClick");
+    const parentDropbtn = currentItem.closest(".dropdown")?.querySelector(".dropbtn");
+    if (parentDropbtn) {
+        parentDropbtn.classList.remove("current");
+    }
 }
-
