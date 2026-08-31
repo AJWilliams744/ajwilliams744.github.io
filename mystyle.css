@@ -384,14 +384,6 @@ hr.rounded {
     width: 50%;
 }
 
-object.inject {
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    background: var(--background);
-}
-
 @keyframes page-in {
     from {
         opacity: 0;
@@ -446,6 +438,10 @@ object.inject {
 
     .grid-container {
         grid-template-columns: 1fr;
+    }
+
+    .grid-item:nth-last-child(-n + 2) {
+        border-bottom: 1px solid var(--line);
     }
 
     .grid-item:last-child {
