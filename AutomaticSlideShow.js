@@ -11,6 +11,8 @@ function showSlides(slideShow, index) {
     let i;
     let slides = slideShow.getElementsByClassName("mySlides");
 
+    if (slides.length === 0) return;
+
     for (i = 0; i < slides.length; i++) {
         if (slides[i].classList.contains("in")) slides[i].classList.remove("in");
     }
@@ -22,5 +24,7 @@ function showSlides(slideShow, index) {
 
     slides[slideIndex[index] - 1].classList.add("in");
 
-    setTimeout(() => showSlides(slideShow, index), (Math.random() * 500) + 2000);
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        setTimeout(() => showSlides(slideShow, index), (Math.random() * 500) + 2000);
+    }
 }

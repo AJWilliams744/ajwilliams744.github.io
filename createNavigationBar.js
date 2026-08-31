@@ -68,10 +68,18 @@ function setCurrent(currentItem) {
     if (!currentItem) return;
     currentItem.classList.add("current");
     currentItem.classList.add("disableClick");
+    const parentDropbtn = currentItem.closest(".dropdown")?.querySelector(".dropbtn");
+    if (parentDropbtn) {
+        parentDropbtn.classList.add("current");
+    }
 }
 
 function removeCurrent(currentItem) {
     if (!currentItem) return;
     currentItem.classList.remove("current");
     currentItem.classList.remove("disableClick");
+    const parentDropbtn = currentItem.closest(".dropdown")?.querySelector(".dropbtn");
+    if (parentDropbtn) {
+        parentDropbtn.classList.remove("current");
+    }
 }
