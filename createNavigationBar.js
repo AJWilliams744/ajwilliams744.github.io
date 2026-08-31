@@ -71,6 +71,7 @@ function setCurrent(currentItem) {
 }
 
 function removeCurrent(currentItem) {
+    if (!currentItem) return;
     currentItem.classList.remove("current");
     currentItem.classList.remove("disableClick");
 }
