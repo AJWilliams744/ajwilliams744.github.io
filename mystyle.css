@@ -416,7 +416,7 @@ object.inject {
 
 @media (max-width: 760px) {
     .main {
-        width: min(100% - 20px, 600px);
+        width: min(calc(100% - 20px), 600px);
     }
 
     .topnav {
