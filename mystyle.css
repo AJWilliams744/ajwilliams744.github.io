@@ -448,10 +448,6 @@ object.inject {
         grid-template-columns: 1fr;
     }
 
-    .grid-item:nth-last-child(-n + 2) {
-        border-bottom: 1px solid var(--line);
-    }
-
     .grid-item:last-child {
         border-bottom: 0;
     }
